@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:5555';
+export const BASE_URL = 'http://study.mesto.nomoredomains.icu';
 
 function _checkResponse(res) {
     if (res.ok) {

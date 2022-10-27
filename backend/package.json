@@ -4,8 +4,8 @@
   "description": "Проект Место бэкенд",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env PORT=5555 node app.js",
-    "dev": "cross-env PORT=5555 nodemon app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint ."
   },
