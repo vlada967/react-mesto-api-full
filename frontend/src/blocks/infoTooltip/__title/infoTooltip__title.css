@@ -1,0 +1,9 @@
+.infoTooltip__title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #000000;
+    max-width: 358px;
+    text-align: center;
+    align-self: center;
+    margin: 32px 0 60px 0;
+}

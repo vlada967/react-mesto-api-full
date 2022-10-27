@@ -1,0 +1,9 @@
+.register__signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register__signin p {
+    margin: 0 5px 0 0;
+}

@@ -1,0 +1,9 @@
+.header__button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    color: #A9A9A9;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}

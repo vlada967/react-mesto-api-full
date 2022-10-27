@@ -1,0 +1,16 @@
+.input__text {
+    color: #ffffff;
+    margin: 0 0 30px 0;
+    padding: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    min-height: 27px;
+    background-color: transparent;
+    border-bottom: 2px solid #CCCCCC;
+}
+
+::placeholder {
+    color: #CCCCCC;
+}

@@ -1,0 +1,26 @@
+.popup__create-button {
+    color: #ffffff;
+    background: #000000;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    min-height: 50px;
+    cursor: pointer;
+    max-width: 358px;
+    margin: 48px auto 37px;
+    padding: 0;
+    width: 83%;
+    border: none;
+}
+
+.popup__create-button:hover {
+    opacity: 60%;
+}
+
+@media screen and (max-width: 568px) {
+    .popup__create-button {
+        margin: 45px auto 25px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

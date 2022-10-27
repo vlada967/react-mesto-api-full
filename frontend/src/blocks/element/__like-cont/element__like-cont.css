@@ -1,0 +1,6 @@
+.element__like-cont {
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
