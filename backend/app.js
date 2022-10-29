@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
@@ -9,8 +11,6 @@ const { login, createUser } = require('./controllers/user');
 const { regexForUrl } = require('./utils/constants');
 const NotFoundError = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const rateLimit = require('express-rate-limit');
-const helmet = require("helmet");
 const cors = require('./middlewares/cors');
 require('dotenv').config();
 
