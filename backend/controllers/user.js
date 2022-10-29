@@ -36,14 +36,11 @@ const findById = (req, res, next) => User.findById(req.params.userId)
   });
 
 const createUser = (req, res, next) => {
-  console.log('BACK')
-  console.log(req.body)
   const {
     email: userEmail, name: userName, about: userAbout, avatar: userAvatar, password,
   } = req.body;
   bcrypt.hash(password, 10)
     .then((hash) => {
-      console.log('BACK', userEmail)
       User.create({
         name: userName, about: userAbout, avatar: userAvatar, email: userEmail, password: hash,
       })

@@ -38,7 +38,7 @@ function App() {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [loggedIn]);
 
     useEffect(() => {
         const jwt = localStorage.getItem('token');
@@ -157,6 +157,7 @@ function App() {
         return auth.authorize(email, password)
             .then((data) => {
                 if (data.token) {
+                    tokenCheck(localStorage.getItem('token'));
                     handleLogin();
                     history.push('/');
                 }

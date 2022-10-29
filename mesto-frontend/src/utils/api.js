@@ -11,10 +11,17 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
     }
 
+    _getToken() {
+        return localStorage.getItem('token');
+    }
+
     getProfileInfo() {
         return fetch(`${this._url}/users/me`, {
             method: "GET",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            }
         })
             .then((response) => this._checkResponse(response))
     }
@@ -22,7 +29,10 @@ class Api {
     getInitialCards() {
         return fetch(`${this._url}/cards`, {
             method: "GET",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            }
         })
             .then((response) => this._checkResponse(response))
     }
@@ -30,7 +40,10 @@ class Api {
     editProfile(name, job) {
         return fetch(`${this._url}/users/me`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            },
             body: JSON.stringify({
                 name: name,
                 about: job
@@ -42,7 +55,10 @@ class Api {
     addCard(name, link) {
         return fetch(`${this._url}/cards`, {
             method: "POST",
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            },
             body: JSON.stringify({
                 name: name,
                 link: link
@@ -54,7 +70,10 @@ class Api {
     deleteCard(id) {
         return fetch(`${this._url}/cards/${id}`, {
             method: "DELETE",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            }
         })
             .then((response) => this._checkResponse(response))
     }
@@ -62,7 +81,10 @@ class Api {
     toggleLike(id, isLiked) {
         return fetch(`${this._url}/cards/${id}/likes`, {
             method: isLiked ? "PUT" : "DELETE",
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            }
         })
             .then((response) => this._checkResponse(response))
     }
@@ -70,7 +92,10 @@ class Api {
     editAvatar(link) {
         return fetch(`${this._url}/users/me/avatar`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${this._getToken()}`,
+            },
             body: JSON.stringify({
                 avatar: link
             })
@@ -81,11 +106,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'http://study.mesto.nomoredomains.icu',
-    headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
-    }
+    baseUrl: '//study.mesto.nomoredomains.icu'
 });
 
 export default api;
