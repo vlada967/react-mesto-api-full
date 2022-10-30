@@ -30,14 +30,16 @@ function App() {
     const history = useHistory();
 
     useEffect(() => {
-        Promise.all([api.getProfileInfo(), api.getInitialCards()])
-            .then(([user, cards]) => {
-                setCurrentUser(user.data);
-                setCards(cards.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        if (loggedIn) {
+            Promise.all([api.getProfileInfo(), api.getInitialCards()])
+                .then(([user, cards]) => {
+                    setCurrentUser(user.data);
+                    setCards(cards.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
     }, [loggedIn]);
 
     useEffect(() => {
